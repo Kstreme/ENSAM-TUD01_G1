@@ -2,7 +2,7 @@ using Plots
 using DifferentialEquations
 
 E(x)=1                 #young module equation
-J(x)=1                      #inertia equation
+J(x)= 1.1-x                      #inertia equation
 M(x)=-(1-x);                  #momentum equation
 
 
@@ -15,7 +15,7 @@ end
 
 function bc!(r,u,p,t)
     r[1] = u[1][1]
-    r[2] = u[2][1]
+    r[2] = u[1][2]
 end
 
 xspan=(0.0 , 1.0)
@@ -26,4 +26,4 @@ u_sol= solve(bvp,BS3(),saveat = 0.01)
 
 plot(u_sol.t,-u_sol[1,:],label="displacement")
 plot!(u_sol.t,0*u_sol.t,label="beam")
-plot!(u_sol.t,-0.05*M.(u_sol.t),label="distributed load")
+plot!(u_sol.t,-0.05*M.(u_sol.t),label="momentum")
