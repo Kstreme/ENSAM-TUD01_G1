@@ -2,7 +2,7 @@ using Plots
 using DifferentialEquations
 
 E(x)=1                 #young module equation
-J(x)= 1.1-x                      #inertia equation
+J(x)= 1                      #inertia equation
 M(x)=-(1-x);                  #momentum equation
 
 
